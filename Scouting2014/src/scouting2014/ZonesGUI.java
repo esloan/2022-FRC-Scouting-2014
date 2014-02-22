@@ -5,6 +5,7 @@ import javax.swing.*;
 import net.miginfocom.swing.MigLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,59 +26,143 @@ public class ZonesGUI extends JFrame implements ActionListener{
     JTextField matchNumber = new JTextField(2);
     JLabel matchInfo = new JLabel("Match Number:");
     
-    JLabel zone1 = new JLabel("Near (defensive) team: ");
+  /*  JLabel zone1 = new JLabel("Near (defensive) team: ");
     JTextField team1 = new JTextField(4);
     JLabel zone2 = new JLabel("Middle team: ");
     JTextField team2 = new JTextField(4);
     JLabel zone3 = new JLabel("Far (offensive) team: ");
-    JTextField team3 = new JTextField(4);
+    JTextField team3 = new JTextField(4);*/
     
-    JLabel teamLabel1 = new JLabel("Team");
+    JMenuBar menuBar = new JMenuBar();
+    JMenu help = new JMenu("Help");
+    JMenuItem about = new JMenuItem("About Zones");
+    
+    JLabel red = new JLabel("Red Alliance");
+    JLabel blue = new JLabel("Blue Alliance");
+    
+    JLabel teamNuma = new JLabel(" Team Number: ");
+    JLabel teamNumb = new JLabel(" Team Number: ");
+    JLabel teamNumc = new JLabel(" Team Number: ");
+    JTextField teamNumbera = new JTextField(3);
+    JTextField teamNumberb = new JTextField(3);
+    JTextField teamNumberc = new JTextField(3);
+    
+    JLabel teamNum1 = new JLabel(" Team Number: ");
+    JLabel teamNum2 = new JLabel(" Team Number: ");
+    JLabel teamNum3 = new JLabel(" Team Number: ");
+    JTextField teamNumber1 = new JTextField(3);
+    JTextField teamNumber2 = new JTextField(3);
+    JTextField teamNumber3 = new JTextField(3);
+    
+    String[] ops = {"Defensive team","Middle team","Offensive team", "No defined zone"};
+    JComboBox zones1 = new JComboBox(ops);
+    JComboBox zones2 = new JComboBox(ops);
+    JComboBox zones3 = new JComboBox(ops);
+    JComboBox zones4 = new JComboBox(ops);
+    JComboBox zones5 = new JComboBox(ops);
+    JComboBox zones6 = new JComboBox(ops);
+
+    /*JLabel zone1b = new JLabel("Near (defensive) team: ");
+    JTextField team1b = new JTextField(4);
+    JLabel zone2b = new JLabel("Middle team: ");
+    JTextField team2b = new JTextField(4);
+    JLabel zone3b = new JLabel("Far (offensive) team: ");
+    JTextField team3b = new JTextField(4);*/
+    
     JLabel notesLabel1 = new JLabel("notes:");
-    JTextField teamField1 = new JTextField(4);
     JTextField notes1 = new JTextField(10);
-    JLabel teamLabel2 = new JLabel("Team");
     JLabel notesLabel2 = new JLabel("notes:");
-    JTextField teamField2 = new JTextField(4);
     JTextField notes2 = new JTextField(10);
-    JLabel teamLabel3 = new JLabel("Team");
     JLabel notesLabel3 = new JLabel("notes:");
-    JTextField teamField3 = new JTextField(4);
     JTextField notes3 = new JTextField(10);
     
+    JLabel notesLabel4 = new JLabel("notes:");
+    JTextField notes4 = new JTextField(10);
+    JLabel notesLabel5 = new JLabel("notes:");
+    JTextField notes5 = new JTextField(10);
+    JLabel notesLabel6 = new JLabel("notes:");
+    JTextField notes6 = new JTextField(10);
+    
     JPanel jp = new JPanel(new MigLayout());
-
+    
     public ZonesGUI() throws ClassNotFoundException, InstantiationException, 
             IllegalAccessException{
                 //Create the window
         setTitle("Zones (subjective) app 2014");
         setVisible(true);
-        setSize(300, 400);
+        setSize(505, 360);
         setResizable(true);
         
+        menuBar.add(help);
+        help.add(about);
+        
+         about.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Scouter.aboutZones.setVisible(true);
+            }
+        });
+        
+        this.setJMenuBar(menuBar);
         this.jp.add(matchInfo,"split 2");
         this.jp.add(matchNumber, "wrap");
+        this.jp.add(red,"center, newline, wrap");
+        
+        /*
         this.jp.add(zone1,"split 2");
         this.jp.add(team1,"wrap");
         this.jp.add(zone2,"split 2");
         this.jp.add(team2,"wrap");
         this.jp.add(zone3,"split 2");
         this.jp.add(team3,"wrap");
-        this.jp.add(teamLabel1,"split 4");
-        this.jp.add(teamField1);
-        this.jp.add(notesLabel1);
-        this.jp.add(notes1, "wrap");
-        this.jp.add(teamLabel2,"split 4");
-        this.jp.add(teamField2);
+        this.jp.add(zone1b,"split 2");
+        this.jp.add(team1b,"wrap");
+        this.jp.add(zone2b,"split 2");
+        this.jp.add(team2b,"wrap");
+        this.jp.add(zone3b,"split 2");
+        this.jp.add(team3b,"wrap");
+        */
+        this.jp.add(teamNuma, "split 8, grow");
+        this.jp.add(teamNumbera);
+        this.jp.add(teamNumb);
+        this.jp.add(teamNumberb);
+        this.jp.add(teamNumc);
+        this.jp.add(teamNumberc, "wrap");
+        
+        this.jp.add(zones1, "split 3");
+        this.jp.add(zones2);
+        this.jp.add(zones3, "wrap");
+        
+        
+        this.jp.add(notesLabel1,"split 6");
+        this.jp.add(notes1);
         this.jp.add(notesLabel2);
-        this.jp.add(notes2, "wrap");
-        this.jp.add(teamLabel3,"split 4");
-        this.jp.add(teamField3);
+        this.jp.add(notes2);
         this.jp.add(notesLabel3);
         this.jp.add(notes3, "wrap");
+        
+        this.jp.add(blue,"center, newline, wrap");
+        
+        this.jp.add(teamNum1, "split 8, grow");
+        this.jp.add(teamNumber1);
+        this.jp.add(teamNum2);
+        this.jp.add(teamNumber2);
+        this.jp.add(teamNum3);
+        this.jp.add(teamNumber3, "wrap");
+        
+        this.jp.add(zones4,"split 3");
+        this.jp.add(zones5);
+        this.jp.add(zones6, "wrap");
+        
+        this.jp.add(notesLabel4,"split 6");
+        this.jp.add(notes4);
+        this.jp.add(notesLabel5);
+        this.jp.add(notes5);
+        this.jp.add(notesLabel6);
+        this.jp.add(notes6, "wrap");
+        
         this.jp.add(save);
         
-        this.save.addActionListener(new ActionListener() {
+       /* this.save.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 
                 int returnVal = fc.showSaveDialog(jp);
@@ -87,7 +172,7 @@ public class ZonesGUI extends JFrame implements ActionListener{
                     String path = file.getAbsolutePath();
                     try {
                         Scouter.saveZones(path,matchNumber.getText(),
-                                team1.getText(), team2.getText(),team3.getText(),
+                                "test", "test","test",
                                 teamField1.getText(),notes1.getText(), 
                                 teamField2.getText(),notes2.getText(),
                                 teamField3.getText(),notes3.getText()); 
@@ -96,7 +181,7 @@ public class ZonesGUI extends JFrame implements ActionListener{
                     }
                 }
             }
-        });
+        }); */
         
         add(this.jp);
         jp.updateUI();

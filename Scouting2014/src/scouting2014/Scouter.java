@@ -8,6 +8,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class Scouter 
 {
     public static AboutGUI aboutScouter;
+    public static AboutZones aboutZones;
     
     public static void saveScouter(String path,int[] data, String n, String t1, 
             String t2, String t3, boolean m1, boolean m2, boolean m3,
@@ -143,5 +144,6 @@ public class Scouter
       ScoutingGUI GUI = new ScoutingGUI();
       ZonesGUI gui = new ZonesGUI();
       aboutScouter = new AboutGUI();
+      aboutZones = new AboutZones();
     }
 }
