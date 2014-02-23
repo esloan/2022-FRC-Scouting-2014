@@ -162,7 +162,7 @@ public class ZonesGUI extends JFrame implements ActionListener{
         
         this.jp.add(save);
         
-       /* this.save.addActionListener(new ActionListener() {
+       this.save.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 
                 int returnVal = fc.showSaveDialog(jp);
@@ -172,16 +172,19 @@ public class ZonesGUI extends JFrame implements ActionListener{
                     String path = file.getAbsolutePath();
                     try {
                         Scouter.saveZones(path,matchNumber.getText(),
-                                "test", "test","test",
-                                teamField1.getText(),notes1.getText(), 
-                                teamField2.getText(),notes2.getText(),
-                                teamField3.getText(),notes3.getText()); 
+                                teamNumbera.getText(), (String) zones1.getSelectedItem(), notes1.getText(), 
+                                teamNumberb.getText(),(String)zones2.getSelectedItem(),notes2.getText(),
+                                teamNumberc.getText(),(String)zones3.getSelectedItem(),notes3.getText(), 
+                                teamNumber1.getText(), (String) zones4.getSelectedItem(), notes4.getText(),
+                                teamNumber2.getText(), (String) zones5.getSelectedItem(), notes5.getText(), 
+                                teamNumber3.getText(), (String) zones6.getSelectedItem(), notes6.getText()); 
+                                
                     } catch (IOException ex) {
                         Logger.getLogger(ZonesGUI.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
-        }); */
+        }); 
         
         add(this.jp);
         jp.updateUI();

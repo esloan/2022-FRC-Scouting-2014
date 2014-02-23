@@ -91,8 +91,9 @@ public class Scouter
         }
     }
     
-    public static void saveZones(String path, String m, String t1, String t2, String t3,
-            String t4, String n4, String t5, String n5, String t6, String n6)
+    public static void saveZones(String path, String m, String t1, String z1, String n1,
+            String t2, String z2, String n2, String t3, String z3, String n3,String t4, String z4, String n4,
+            String t5, String z5, String n5, String t6, String z6, String n6)
             throws IOException{
         
         CSVWriter writer = null;
@@ -112,30 +113,22 @@ public class Scouter
         }
         }
         
-        String[] info1 = new String[3];
-        String[] info2 = new String[3];
-        String[] info3 = new String[3];
+        String[] info1 = {m,t1,z1,n1};
+        String[] info2 = {m,t2,z2,n2};
+        String[] info3 = {m,t3,z3,n3};
+        String[] info4 = {m,t4,z4,n4};
+        String[] info5 = {m,t5,z5,n5};
+        String[] info6 = {m,t6,z6,n6};
 
-        info1[0]=t4;
-        info1[1]=n4;
-        info2[0]=t5;
-        info2[1]=n5;
-        info3[0]=t6;
-        info3[1]=n6;
         
-        if(t1.equals(t4)){info1[2]="Near (defensive) team";}
-        if(t1.equals(t5)){info2[2]="Near (defensive) team";}
-        if(t1.equals(t6)){info3[2]="Near (defensive) team";}
-        if(t2.equals(t4)){info1[2]="Middle team";}
-        if(t2.equals(t5)){info2[2]="Middle team";}
-        if(t2.equals(t6)){info3[2]="Middle team";}
-        if(t3.equals(t4)){info1[2]="Far (offensive) team";}
-        if(t3.equals(t5)){info2[2]="Far (offensive) team";}
-        if(t3.equals(t6)){info3[2]="Far (offensive) team";}
-        
-        writer.writeNext(info3);
-        writer.writeNext(info2);
         writer.writeNext(info1);
+        writer.writeNext(info2);
+        writer.writeNext(info3);
+        writer.writeNext(info4);
+        writer.writeNext(info5);
+        writer.writeNext(info6);
+
+        
         writer.close();
     }
     
