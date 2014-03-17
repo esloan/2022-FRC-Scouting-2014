@@ -122,7 +122,7 @@ public class ScoutingGUI extends JFrame
     JLabel[] space = {new JLabel(" "),new JLabel(" "),new JLabel(" "),new JLabel(" "),new JLabel(" "),new JLabel(" "),new JLabel(" ")};     
     JLabel[] lines = {new JLabel("|"),new JLabel("|"),new JLabel("|"),new JLabel("|"),new JLabel("|"),new JLabel("|")};     
     
-    JLabel gotball1 = new JLabel("Received Ball ");
+    JLabel passtry1 = new JLabel("Passes Attempted ");
     JLabel pass1 = new JLabel("Passes Made ");
     JLabel shoottry1 = new JLabel("Shots Attempted ");
     JLabel shooth1 = new JLabel("High Shots Made ");
@@ -131,9 +131,6 @@ public class ScoutingGUI extends JFrame
     JLabel trussmade1 = new JLabel("Truss Passes Made ");
     JLabel catchtry1 = new JLabel("Catches Attempted ");
     JLabel catchmade1 = new JLabel("Catches Made ");
-    
-    JLabel fouls = new JLabel(" Fouls Made");
-    JLabel tFouls = new JLabel(" Technical Fouls Made");
   
     final JFileChooser fc = new JFileChooser();
     JButton save = new JButton("Save Results");
@@ -147,7 +144,7 @@ public class ScoutingGUI extends JFrame
         //Create the window
         setTitle("Scouter 2014");
         setVisible(true);
-        setSize(735, 690);
+        setSize(735, 630);
         setResizable(true);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -228,7 +225,7 @@ public class ScoutingGUI extends JFrame
         autoHotGroup1.add(hoty1);
         autoHotGroup1.add(hotn1);
         autoHotGroup2.add(hoty2);
-        autoHotGroup2.add(hoty2);
+        autoHotGroup2.add(hotn2);
         autoHotGroup3.add(hoty3);
         autoHotGroup3.add(hotn3);
         this.jp.add(teleop,"center, newline, wrap");
@@ -248,9 +245,9 @@ public class ScoutingGUI extends JFrame
         
         //Add identical buttons and their respective labels/action listeners
         int n=0;
-        for (int i = 0; i<33; i++){
+        for (int i = 0; i<27; i++){
             if (i == 0){                    
-                this.jp.add(gotball1, "newline, grow, split 12");
+                this.jp.add(passtry1, "newline, grow, split 12");
             }
             else if (i == 3){
                 this.jp.add(pass1,"newline, grow, split 12");
@@ -275,12 +272,6 @@ public class ScoutingGUI extends JFrame
             }
             else if (i==24){
                 this.jp.add(catchmade1,"newline, grow, split 12");
-            }
-            else if (i==27){
-                this.jp.add(fouls,"newline, grow, split 12");
-            }
-            else if (i==30){
-                this.jp.add(tFouls,"newline, grow, split 12");
             }
 
             this.jp.add(this.subtract[i]);            // -1
@@ -345,8 +336,8 @@ public class ScoutingGUI extends JFrame
                     File file = fc.getSelectedFile();
                     String path = file.getAbsolutePath();
                 
-                    int[] data = new int[33];
-                    for (int i = 0; i<33; i++){
+                    int[] data = new int[27];
+                    for (int i = 0; i<27; i++){
                         data[i] = integer(label[i].getText());
                     }
 

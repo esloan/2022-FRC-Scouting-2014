@@ -79,9 +79,9 @@ public class Scouter
             if(i%3==1){info2[(i-1)/3+5]=String.valueOf(data[i]);}
             if(i%3==2){info3[(i-2)/3+5]=String.valueOf(data[i]);}
         }
-        writer.writeNext(info3);
-        writer.writeNext(info2);
-        writer.writeNext(info1);
+        if(info1[1]!= ""){writer.writeNext(info1);}
+        if(info2[1]!= ""){writer.writeNext(info2);}
+        if(info3[1]!= ""){writer.writeNext(info3);}
         try
         {
           writer.close();
