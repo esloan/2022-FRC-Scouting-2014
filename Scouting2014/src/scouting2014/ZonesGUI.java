@@ -69,6 +69,8 @@ public class ZonesGUI extends JFrame implements ActionListener{
     JLabel zone3b = new JLabel("Far (offensive) team: ");
     JTextField team3b = new JTextField(4);*/
     
+    JButton clear = new JButton("Clear");
+    
     JLabel notesLabel1 = new JLabel("notes:");
     JTextField notes1 = new JTextField(10);
     JLabel notesLabel2 = new JLabel("notes:");
@@ -160,7 +162,24 @@ public class ZonesGUI extends JFrame implements ActionListener{
         this.jp.add(notesLabel6);
         this.jp.add(notes6, "wrap");
         
-        this.jp.add(save);
+        this.jp.add(save, "split 2");
+        this.jp.add(clear);
+        
+        this.clear.addActionListener(new ActionListener(){
+             public void actionPerformed(ActionEvent e) {
+                 
+                 matchNumber.setText("");
+                 teamNumbera.setText(null);
+                 teamNumberb.setText(null);
+                 teamNumberc.setText(null);
+                 notes1.setText(null);
+                 notes2.setText(null);
+                 notes3.setText(null);
+                 notes4.setText(null);
+                 notes5.setText(null);
+                 notes6.setText(null);
+             }
+        });
         
        this.save.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -183,6 +202,7 @@ public class ZonesGUI extends JFrame implements ActionListener{
                         Logger.getLogger(ZonesGUI.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+                clear.doClick();
             }
         }); 
         
