@@ -11,43 +11,23 @@ public class Scouter
     public static AboutZones aboutZones;
     
     public static void saveScouter(String path,int[] data, String n, String t1, 
-            String t2, String t3, boolean m1, boolean m2, boolean m3,
-            int s1, int s2, int s3, boolean h1, boolean h2,
-            boolean h3) {
+            boolean m1, int s1, boolean h1) {
         
         int sum1 = 0;
-        int sum2 = 0;
-        int sum3 = 0;
         
         int suma = data[3]*10+data[9]*10+data[12]+10*data[18]+10*data[24];
-        int sumb = data[4]*10+data[10]*10+data[13]+10*data[19]+10*data[25];
-        int sumc = data[5]*10+data[11]*10+data[14]+10*data[20]+10*data[26];
         
         String move1 = "Did not move";
         if(m1){
             move1 = "Moved";
             sum1+=5;}
-        String move2 = "Did not move";
-        if(m2){move2 = "Moved";
-        sum2+=5;}
-        String move3 = "Did not move";
-        if(m3){move3 = "Moved";
-        sum3+=5;}
         
         String hot1 = "No hot goal";
         if(h1){
             hot1 = "Hot goal";
             sum1+=5;
         }
-        String hot2 = "No hot goal";
-        if(h2){hot2 = "Hot goal";
-         sum2+=5;
-        }
-        String hot3 = "No hot goal";
-        if(h3){hot3 = "Hot goal";
-            sum3+=5;
-        }
-        
+       
         String as1 = "No goal";
         if(s1==1){as1="Low goal";
             sum1+=6;
@@ -58,29 +38,6 @@ public class Scouter
         else if(s1==3){as1 = "Two goals";
             sum1+=30;
         }
-        
-        String as2 = "No goal";
-        if(s2==1){as2="Low goal";
-            sum2+=6;
-        }
-        else if(s2==2){as2 = "High goal";
-            sum2+=15;
-        }
-        else if(s2==3){as2 = "Two goals";
-            sum2+=30;
-        }
-        
-        String as3 = "No goal";
-        if(s3==1){as3="Low goal";
-            sum3+=6;
-        }
-        else if(s3==2){as3 = "High goal";
-            sum3+=15;
-        }
-        else if(s3==3){as3 = "Two goals";
-            sum3+=30;
-        }
-        
         
         CSVWriter writer = null;
         if(path.indexOf(".csv")==-1){
@@ -105,36 +62,16 @@ public class Scouter
         info1[3] = as1;
         info1[4]=hot1;
         
-        String[] info2 = new String[30];
-        info2[0]=n;
-        info2[1] = t2;
-        info2[2] = move2;
-        info2[3] = as2;
-        info2[4]=hot2;
-        
-        String[] info3 = new String[30];
-        info3[0]=n;
-        info3[1] = t3;
-        info3[2] = move3;
-        info3[3] = as3;
-        info3[4]=hot3;
-
         for(int i=0;i<data.length;i++){
-            if(i%3==0){info1[i/3+5]=String.valueOf(data[i]);}
-            if(i%3==1){info2[(i-1)/3+5]=String.valueOf(data[i]);}
-            if(i%3==2){info3[(i-2)/3+5]=String.valueOf(data[i]);}
+            if(i%3==0){info1[i+5]=String.valueOf(data[i]);}
         }
-        info1[data.length/3+5] = String.valueOf(sum1);
-        info2[data.length/3+5] = String.valueOf(sum2);
-        info3[data.length/3+5] = String.valueOf(sum3);
+        info1[data.length+5] = String.valueOf(sum1);
         
-        info1[data.length/3+6] = String.valueOf(suma);
-        info2[data.length/3+6] = String.valueOf(sumb);
-        info3[data.length/3+6] = String.valueOf(sumc);
+        
+        info1[data.length+6] = String.valueOf(suma);
         
         if(info1[1]!= ""){writer.writeNext(info1);}
-        if(info2[1]!= ""){writer.writeNext(info2);}
-        if(info3[1]!= ""){writer.writeNext(info3);}
+        
         try
         {
           writer.close();
@@ -188,8 +125,8 @@ public class Scouter
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException, IOException
     {
       ScoutingGUI GUI = new ScoutingGUI();
-      ZonesGUI gui = new ZonesGUI();
+      //ZonesGUI gui = new ZonesGUI();
       aboutScouter = new AboutGUI();
-      aboutZones = new AboutZones();
+      //aboutZones = new AboutZones();
     }
 }

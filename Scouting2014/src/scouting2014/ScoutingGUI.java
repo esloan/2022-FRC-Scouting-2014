@@ -153,7 +153,7 @@ public class ScoutingGUI extends JFrame
         //Create the window
         setTitle("Scouter 2014");
         setVisible(true);
-        setSize(735, 650);
+        setSize(400, 600);
         setResizable(true);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -185,135 +185,71 @@ public class ScoutingGUI extends JFrame
         
         //Add GUI elements to JPanel
         this.setJMenuBar(menuBar);
-        this.jp.add(matchInfo,"split 3");
-        this.jp.add(matchNumber, "wrap");
-        this.jp.add(auto,"center, newline, wrap");
-
-        this.jp.add(this.space[0], "split 9, grow");
+        this.jp.add(matchInfo,"split 4");
+        this.jp.add(matchNumber);
         this.jp.add(teamNuma);
-        this.jp.add(teamNumbera);
-        this.jp.add(this.line[0]);
-        this.jp.add(teamNumb);
-        this.jp.add(teamNumberb);
-        this.jp.add(this.line[1]);
-        this.jp.add(teamNumc);
-        this.jp.add(teamNumberc, "wrap");
-        this.jp.add(autoMove, "grow, split 9");
+        this.jp.add(teamNumbera, "wrap");
+        this.jp.add(auto,"center, newline, wrap");
+        this.jp.add(autoMove, "grow, split 3");
         this.jp.add(movey1);
-        this.jp.add(moven1);
-        //this.jp.add(this.space[1],"grow");
-        this.jp.add(this.line[2]);
-        this.jp.add(movey2);
-        this.jp.add(moven2);
-        this.jp.add(this.line[3]);
-        this.jp.add(movey3);
-        this.jp.add(moven3,"wrap");
+        this.jp.add(moven1,"wrap");
         autoMoveGroup1.add(movey1);
         autoMoveGroup1.add(moven1);
-        autoMoveGroup2.add(movey2);
-        autoMoveGroup2.add(moven2);
-        autoMoveGroup3.add(movey3);
-        autoMoveGroup3.add(moven3);
-        this.jp.add(autoShoot1, "grow, split 9");
+        
+        this.jp.add(autoShoot1, "grow, split 5");
         this.jp.add(autohigh1);
         this.jp.add(autolow1);
-        this.jp.add(this.line[4]);
-        this.jp.add(autohigh2);
-        this.jp.add(autolow2);
-        this.jp.add(this.line[5]);
-        this.jp.add(autohigh3);
-        this.jp.add(autolow3, "wrap");
-        
-        this.jp.add(this.space[1],"grow, split 9");
         this.jp.add(autono1);
-        this.jp.add(autotwo1);
-        this.jp.add(this.line[6]);
-        this.jp.add(autono2);
-        this.jp.add(autotwo2);
-        this.jp.add(this.line[7]);
-        this.jp.add(autono3);
-        this.jp.add(autotwo3, "wrap");
+        this.jp.add(autotwo1,"wrap");
         
         autoShootGroup1.add(autohigh1);
         autoShootGroup1.add(autolow1);
         autoShootGroup1.add(autono1);
         autoShootGroup1.add(autotwo1);
-        autoShootGroup2.add(autohigh2);
-        autoShootGroup2.add(autolow2);
-        autoShootGroup2.add(autono2);
-        autoShootGroup2.add(autotwo2);
-        autoShootGroup3.add(autohigh3);
-        autoShootGroup3.add(autolow3);
-        autoShootGroup3.add(autono3);
-        autoShootGroup3.add(autotwo3);
         
-        this.jp.add(autoHot1,"grow, split 9");
+        this.jp.add(autoHot1,"grow, split 3");
         this.jp.add(hoty1);
-        this.jp.add(hotn1);
-        this.jp.add(this.line[8]);
-        this.jp.add(hoty2);
-        this.jp.add(hotn2);
-        this.jp.add(this.line[9]);
-        this.jp.add(hoty3);
-        this.jp.add(hotn3,"wrap");
+        this.jp.add(hotn1,"wrap");
         autoHotGroup1.add(hoty1);
         autoHotGroup1.add(hotn1);
-        autoHotGroup2.add(hoty2);
-        autoHotGroup2.add(hotn2);
-        autoHotGroup3.add(hoty3);
-        autoHotGroup3.add(hotn3);
+        
         this.jp.add(teleop,"center, newline, wrap");
         this.jp.add(this.space[2], "split 9, grow");
-/*        this.jp.add(teamNum1);
-        this.jp.add(teamNumber1);
-        this.jp.add(line1);
-        this.jp.add(teamNum2);
-        this.jp.add(teamNumber2);
-        this.jp.add(line2);
-        this.jp.add(teamNum3);
-        this.jp.add(teamNumber3, "wrap");*/
-        
-        //Add action listeners to previous GUI elements
-
-
         
         //Add identical buttons and their respective labels/action listeners
         int n=0;
-        for (int i = 0; i<27; i++){
+        for (int i = 0; i<9; i++){
             if (i == 0){                    
                 this.jp.add(passtry1, "newline, grow, split 12");
             }
-            else if (i == 3){
+            else if (i == 1){
                 this.jp.add(pass1,"newline, grow, split 12");
             }
-            else if (i == 6){
+            else if (i == 2){
                 this.jp.add(shoottry1,"newline, grow, split 12");
             }
-            else if (i == 9){
+            else if (i == 3){
                 this.jp.add(shooth1,"newline, grow, split 12");
             }
-            else if (i == 12){
+            else if (i == 4){
                 this.jp.add(shootl1,"newline, grow, split 12");
             }
-            else if (i == 15){
+            else if (i == 5){
                 this.jp.add(trusstry1,"newline, grow, split 12");
             }
-            else if (i == 18){
+            else if (i == 6){
                 this.jp.add(trussmade1,"newline, grow, split 12");
             }
-            else if (i==21){
+            else if (i==7){
                 this.jp.add(catchtry1, "newline, grow, split 12");
             }
-            else if (i==24){
+            else if (i==8){
                 this.jp.add(catchmade1,"newline, grow, split 12");
             }
 
             this.jp.add(this.subtract[i]);            // -1
             this.jp.add(this.label[i]);                         // 0
             this.jp.add(this.add[i]);                           // +1
-            if(i%3!=2){
-                this.jp.add(this.line[n+10]);
-                n++;}
             
             final int j = i;                                    //appease the inner class
             
@@ -349,33 +285,17 @@ public class ScoutingGUI extends JFrame
         //Add action listeners to previous GUI elements
         
         this.movey1.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {automoves1 = true;}});  
-        this.movey2.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {automoves2 = true;}});
-        this.movey3.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {automoves3 = true;}});
+        public void actionPerformed(ActionEvent e) {automoves1 = true;}});
         
         this.hoty1.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {autohot1 = true;}});  
-        this.hoty2.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {autohot2 = true;}});
-        this.hoty3.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {autohot3 = true;}});
-        
+                
         this.moven1.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {automoves1 = false;}});  
-        this.moven2.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {automoves2 = false;}});
-        this.moven3.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {automoves3 = false;}});
-        
+                
         this.hotn1.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {autohot1 = false;}});  
-        this.hotn2.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {autohot2 = false;}});
-        this.hotn3.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {autohot3 = false;}});
-        
+                
         this.autohigh1.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {autoshoots1 = 2;}});
         this.autolow1.addActionListener(new ActionListener() {
@@ -384,40 +304,16 @@ public class ScoutingGUI extends JFrame
         public void actionPerformed(ActionEvent e) {autoshoots1 = 3;}});
         this.autono1.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {autoshoots1 = 0;}});
-        this.autohigh2.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {autoshoots2 = 2;}});
-        this.autolow2.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {autoshoots2 = 1;}});
-        this.autotwo2.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {autoshoots2 = 3;}});
-        this.autono2.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {autoshoots2 = 0;}});
-        this.autohigh3.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {autoshoots3 = 2;}});
-        this.autolow3.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {autoshoots3 = 1;}});
-        this.autotwo3.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {autoshoots3 = 3;}});
-        this.autono3.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {autoshoots3 = 0;}});
-        
+          
         this.clear.addActionListener(new ActionListener(){
              public void actionPerformed(ActionEvent e) {
                  moven1.doClick();
-                 moven2.doClick();
-                 moven3.doClick();
                  autono1.doClick();
-                 autono2.doClick();
-                 autono3.doClick();
                  hotn1.doClick();
-                 hotn2.doClick();
-                 hotn3.doClick();
                  
                  matchNumber.setText("");
                  teamNumbera.setText(null);
-                 teamNumberb.setText(null);
-                 teamNumberc.setText(null);
-                 for(int i=0;i<27;i++){
+                 for(int i=0;i<9;i++){
                      label[i].setText("0");
                  }
              }
@@ -432,16 +328,14 @@ public class ScoutingGUI extends JFrame
                     File file = fc.getSelectedFile();
                     String path = file.getAbsolutePath();
                 
-                    int[] data = new int[27];
-                    for (int i = 0; i<27; i++){
+                    int[] data = new int[9];
+                    for (int i = 0; i<9; i++){
                         data[i] = integer(label[i].getText());
                     }
 
                     Scouter.saveScouter(path, data, matchNumber.getText(),
-                            teamNumbera.getText(), teamNumberb.getText(),
-                            teamNumberc.getText(), automoves1, automoves2,
-                            automoves3, autoshoots1, autoshoots2,
-                            autoshoots3, autohot1, autohot2, autohot3);                }
+                            teamNumbera.getText(), automoves1,autoshoots1,
+                            autohot1);                }
                             clear.doClick();
             }
         });
