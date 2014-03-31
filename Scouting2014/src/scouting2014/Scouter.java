@@ -13,7 +13,7 @@ public class Scouter
     public static void saveScouter(String path,int[] data, String n, String t1, 
             String t2, String t3, boolean m1, boolean m2, boolean m3,
             int s1, int s2, int s3, boolean h1, boolean h2,
-            boolean h3) {
+            boolean h3,String z1, String z2, String z3) {
         
         int sum1 = 0;
         int sum2 = 0;
@@ -124,17 +124,26 @@ public class Scouter
             if(i%3==1){info2[(i-1)/3+5]=String.valueOf(data[i]);}
             if(i%3==2){info3[(i-2)/3+5]=String.valueOf(data[i]);}
         }
-        info1[data.length/3+5] = String.valueOf(sum1);
-        info2[data.length/3+5] = String.valueOf(sum2);
-        info3[data.length/3+5] = String.valueOf(sum3);
         
-        info1[data.length/3+6] = String.valueOf(suma);
-        info2[data.length/3+6] = String.valueOf(sumb);
-        info3[data.length/3+6] = String.valueOf(sumc);
+        info1[data.length/3+5] = z1;
+        info2[data.length/3+5] = z2;
+        info3[data.length/3+5] = z3;
         
-        if(info1[1]!= ""){writer.writeNext(info1);}
-        if(info2[1]!= ""){writer.writeNext(info2);}
-        if(info3[1]!= ""){writer.writeNext(info3);}
+        info1[data.length/3+6] = String.valueOf(sum1);
+        info2[data.length/3+6] = String.valueOf(sum2);
+        info3[data.length/3+6] = String.valueOf(sum3);
+        
+        info1[data.length/3+7] = String.valueOf(suma);
+        info2[data.length/3+7] = String.valueOf(sumb);
+        info3[data.length/3+7] = String.valueOf(sumc);
+        
+        
+        
+        if(!info1[1].equals( "")){
+            System.out.println(info1[1]);
+            writer.writeNext(info1);}
+        if(!info2[1].equals( "")){writer.writeNext(info2);}
+        if(!info3[1].equals( "")){writer.writeNext(info3);}
         try
         {
           writer.close();
@@ -188,8 +197,8 @@ public class Scouter
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException, IOException
     {
       ScoutingGUI GUI = new ScoutingGUI();
-      ZonesGUI gui = new ZonesGUI();
+      //ZonesGUI gui = new ZonesGUI();
       aboutScouter = new AboutGUI();
-      aboutZones = new AboutZones();
+      //aboutZones = new AboutZones();
     }
 }

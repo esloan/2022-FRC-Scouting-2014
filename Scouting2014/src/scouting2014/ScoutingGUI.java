@@ -42,6 +42,12 @@ public class ScoutingGUI extends JFrame
     
     //Declaration of data-holding variables
     
+    
+    String[] ops = {"Defensive team","Middle team","Offensive team", "No defined zone"};
+    JComboBox zones1 = new JComboBox(ops);
+    JComboBox zones2 = new JComboBox(ops);
+    JComboBox zones3 = new JComboBox(ops);
+    
     boolean automoves1 = false;
     int autoshoots1 = 0;
     boolean autohot1 = false;
@@ -340,7 +346,13 @@ public class ScoutingGUI extends JFrame
         }
         
         
-
+        this.jp.add(this.space[3],"newline, grow, split 6");
+        this.jp.add(this.zones1);
+        this.jp.add(this.line[31]);
+        this.jp.add(this.zones2);
+        this.jp.add(this.line[32]);
+        this.jp.add(this.zones3);
+        
         //this.jp.add(notesLabel,"split 2");
         //this.jp.add(notes,"wrap");
         this.jp.add(this.save, "newline, split 2");
@@ -441,7 +453,9 @@ public class ScoutingGUI extends JFrame
                             teamNumbera.getText(), teamNumberb.getText(),
                             teamNumberc.getText(), automoves1, automoves2,
                             automoves3, autoshoots1, autoshoots2,
-                            autoshoots3, autohot1, autohot2, autohot3);                }
+                            autoshoots3, autohot1, autohot2, autohot3, (String)
+                            zones1.getSelectedItem(), (String) zones2.getSelectedItem(),
+                            (String) zones3.getSelectedItem());                }
                             clear.doClick();
             }
         });
