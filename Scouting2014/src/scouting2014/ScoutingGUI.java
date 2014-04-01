@@ -358,9 +358,10 @@ public class ScoutingGUI extends JFrame
         this.jp.add(this.line[31]);
         this.jp.add(this.zones2);
         this.jp.add(this.line[32]);
-        this.jp.add(this.zones3);
+        this.jp.add(this.zones3, "wrap");
         
-        this.jp.add(notesLabel1,"split 6");
+        this.jp.add(this.space[4], "split 7, grow");
+        this.jp.add(notesLabel1);
         this.jp.add(notes1);
         this.jp.add(notesLabel2);
         this.jp.add(notes2);
