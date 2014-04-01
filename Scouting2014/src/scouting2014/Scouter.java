@@ -10,10 +10,10 @@ public class Scouter
     public static AboutGUI aboutScouter;
     public static AboutZones aboutZones;
     
-    public static void saveScouter(String path,int[] data, String n, String t1, 
+    public static void saveScouter(String path,int[] data, String mn, String t1, 
             String t2, String t3, boolean m1, boolean m2, boolean m3,
             int s1, int s2, int s3, boolean h1, boolean h2,
-            boolean h3,String z1, String z2, String z3) {
+            boolean h3,String z1, String z2, String z3, String n1, String n2, String n3) {
         
         int sum1 = 0;
         int sum2 = 0;
@@ -99,21 +99,21 @@ public class Scouter
         }
         }
         String[] info1 = new String[30];
-        info1[0]=n;
+        info1[0]=mn;
         info1[1] = t1;
         info1[2] = move1;
         info1[3] = as1;
         info1[4]=hot1;
         
         String[] info2 = new String[30];
-        info2[0]=n;
+        info2[0]=mn;
         info2[1] = t2;
         info2[2] = move2;
         info2[3] = as2;
         info2[4]=hot2;
         
         String[] info3 = new String[30];
-        info3[0]=n;
+        info3[0]=mn;
         info3[1] = t3;
         info3[2] = move3;
         info3[3] = as3;
@@ -136,8 +136,10 @@ public class Scouter
         info1[data.length/3+7] = String.valueOf(suma);
         info2[data.length/3+7] = String.valueOf(sumb);
         info3[data.length/3+7] = String.valueOf(sumc);
-        
-        
+
+        info1[data.length/3+8] = n1;
+        info2[data.length/3+8] = n2;
+        info3[data.length/3+8] = n3;
         
         if(!info1[1].equals( "")){
             System.out.println(info1[1]);

@@ -146,6 +146,13 @@ public class ScoutingGUI extends JFrame
     JLabel trussmade1 = new JLabel("Truss Passes Made ");
     JLabel catchtry1 = new JLabel("Catches Attempted ");
     JLabel catchmade1 = new JLabel("Catches Made ");
+    
+    JLabel notesLabel1 = new JLabel("notes:");
+    JTextField notes1 = new JTextField(10);
+    JLabel notesLabel2 = new JLabel("notes:");
+    JTextField notes2 = new JTextField(10);
+    JLabel notesLabel3 = new JLabel("notes:");
+    JTextField notes3 = new JTextField(10);
   
     final JFileChooser fc = new JFileChooser();
     JButton save = new JButton("Save Results");
@@ -159,7 +166,7 @@ public class ScoutingGUI extends JFrame
         //Create the window
         setTitle("Scouter 2014");
         setVisible(true);
-        setSize(735, 650);
+        setSize(740, 690);
         setResizable(true);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -353,6 +360,14 @@ public class ScoutingGUI extends JFrame
         this.jp.add(this.line[32]);
         this.jp.add(this.zones3);
         
+        this.jp.add(notesLabel1,"split 6");
+        this.jp.add(notes1);
+        this.jp.add(notesLabel2);
+        this.jp.add(notes2);
+        this.jp.add(notesLabel3);
+        this.jp.add(notes3, "wrap");
+         
+        
         //this.jp.add(notesLabel,"split 2");
         //this.jp.add(notes,"wrap");
         this.jp.add(this.save, "newline, split 2");
@@ -455,7 +470,8 @@ public class ScoutingGUI extends JFrame
                             automoves3, autoshoots1, autoshoots2,
                             autoshoots3, autohot1, autohot2, autohot3, (String)
                             zones1.getSelectedItem(), (String) zones2.getSelectedItem(),
-                            (String) zones3.getSelectedItem());                }
+                            (String) zones3.getSelectedItem(), notes1.getText(),
+                            notes2.getText(), notes3.getText());                }
                             clear.doClick();
             }
         });
